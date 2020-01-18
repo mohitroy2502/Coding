@@ -1,0 +1,30 @@
+Given a string, determine if it is a palindrome, considering only alphanumeric characters and ignoring cases.
+
+Note: For the purpose of this problem, we define empty string as valid palindrome.
+
+
+class Solution {
+    public boolean isPalindrome(String s) {
+        if(s.length()==0) return true;
+        int start = 0;
+        int end = s.length()-1;
+        
+        while(start<end){
+            char c1= s.charAt(start);
+            char c2= s.charAt(end);
+            if(!Character.isLetterOrDigit(c1)|| c1 ==' '){
+                start++;
+                continue;
+            }
+            if(!Character.isLetterOrDigit(c2)|| c2 ==' '){
+                end--;
+                continue;
+            }
+            if(Character.toLowerCase(c1)!=Character.toLowerCase(c2))
+                return false;
+            
+            start++;end--;
+        }
+        return true;
+    }
+}
