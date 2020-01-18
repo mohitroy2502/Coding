@@ -1,0 +1,20 @@
+Given two strings s and t , write a function to determine if t is an anagram of s.
+
+
+class Solution(object):
+    def isAnagram(self, s, t):
+        """
+        :type s: str
+        :type t: str
+        :rtype: bool
+        """
+        d={}
+        e={}
+        if len(s)==len(t):
+            for i in s:
+                d[i] = d[i]+1 if i in d else 1
+            for i in t:
+                e[i] = e[i]+1 if i in e else 1
+            return (d==e)
+        else:
+            return False
